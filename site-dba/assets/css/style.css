@@ -67,7 +67,8 @@ img { max-width: 100%; display: block; }
 .site-header .logo { justify-self: center; }
 .site-header .logo img { height: 52px; width: auto; }
 
-.header-cta { justify-self: end; padding: 12px 22px; font-size: 0.9rem; white-space: nowrap; }
+.header-ctas { justify-self: end; display: flex; align-items: center; gap: 10px; }
+.header-cta { padding: 12px 22px; font-size: 0.9rem; white-space: nowrap; }
 
 /* ===== Menu lateral (drawer) ===== */
 .nav-toggle {
@@ -209,6 +210,20 @@ img { max-width: 100%; display: block; }
   background: transparent;
   border: 1.5px solid currentColor;
   color: inherit;
+}
+
+/* Botão de destaque (CTA de diagnóstico no header): leve pulso + brilho pra chamar atenção
+   sem ser agressivo. Pausa no hover e some com prefers-reduced-motion. */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 8px 24px rgba(43, 18, 76, 0.25), 0 0 0 rgba(223, 182, 178, 0); }
+  50% { box-shadow: 0 8px 24px rgba(43, 18, 76, 0.25), 0 0 20px rgba(223, 182, 178, 0.6); }
+}
+
+.pulse-glow { animation: pulseGlow 2.2s ease-in-out infinite; }
+.pulse-glow:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-glow { animation: none; }
 }
 
 /* ===== Sections ===== */
@@ -455,7 +470,7 @@ h2.section-title { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom: 16px;
   margin-bottom: 24px;
 }
 
-.site-footer .logo img { height: 40px; margin-bottom: 12px; }
+.site-footer .logo img { height: 76px; margin-bottom: 12px; }
 .site-footer a:hover { color: var(--creme); }
 .footer-cols { display: flex; gap: 56px; flex-wrap: wrap; }
 .footer-col h4 { color: var(--creme); font-size: 0.85rem; margin-bottom: 12px; }
@@ -588,6 +603,8 @@ blockquote cite {
 .post-card.is-hidden { display: none; }
 
 /* ===== Responsive ===== */
+
+/* Tablet */
 @media (max-width: 860px) {
   .grid-2 { grid-template-columns: 1fr; }
   .grid-3 { grid-template-columns: 1fr; }
@@ -596,5 +613,37 @@ blockquote cite {
   .header-cta { padding: 10px 16px; font-size: 0.8rem; }
 
   section { padding: 64px 0; }
+  .section-dark, .section-purple { padding: 80px 0; }
   .footer-top { flex-direction: column; }
+  .footer-cols { gap: 40px; }
+}
+
+/* Celular */
+@media (max-width: 640px) {
+  .container { padding: 0 18px; }
+
+  .site-header .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .nav-toggle { order: 1; justify-self: auto; }
+  .site-header .logo { order: 2; justify-self: auto; }
+  .site-header .logo img { height: 40px; }
+  .header-ctas { order: 3; flex-basis: 100%; justify-content: center; justify-self: auto; }
+  .header-cta { padding: 9px 16px; font-size: 0.76rem; }
+
+  h1.hero-title { font-size: clamp(1.6rem, 7vw, 2.1rem); }
+  h2.section-title { font-size: clamp(1.5rem, 6vw, 1.9rem); }
+  .lead { font-size: 1.05rem; }
+
+  .card { padding: 24px; }
+  .section-dark .grid-3 .card, .section-purple .grid-3 .card { padding: 24px; }
+
+  .site-footer .logo img { height: 56px; }
+  .footer-cols { flex-direction: column; gap: 24px; }
 }

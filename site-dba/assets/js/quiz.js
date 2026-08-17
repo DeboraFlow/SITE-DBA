@@ -75,8 +75,6 @@ document.addEventListener('DOMContentLoaded', function () {
       el.classList.toggle('is-active', el.dataset.band === band);
     });
 
-    // Sem ferramenta de e-mail marketing (decisão dela, 2026-08-15), mesmo padrão do
-    // formulário de administradoras: abre o e-mail do visitante já preenchido para Débora.
     var firstName = document.getElementById('gateFirstName').value.trim();
     var lastName = document.getElementById('gateLastName').value.trim();
     var phone = document.getElementById('gatePhone').value.trim();
@@ -85,19 +83,41 @@ document.addEventListener('DOMContentLoaded', function () {
     var org = document.getElementById('gateOrg').value.trim();
     var bandLabel = { baixa: 'Operação reativa', media: 'Operação em estruturação', alta: 'Operação madura' }[band];
 
-    var body = 'Nome: ' + firstName + ' ' + lastName + '\n' +
-      'Telefone/WhatsApp: ' + phone + '\n' +
-      'Cargo: ' + role + '\n' +
-      'E-mail: ' + email + '\n' +
-      'Administradora: ' + org + '\n' +
-      'Resultado: ' + bandLabel + '\n' +
-      'Respostas: ' + JSON.stringify(answers);
+    var payload = {
+      origem: 'diagnostico.html — quiz',
+      nome: firstName + ' ' + lastName,
+      telefone: phone,
+      cargo: role,
+      email: email,
+      administradora: org,
+      resultado: bandLabel,
+      respostas: JSON.stringify(answers)
+    };
 
-    var mailtoUrl = 'mailto:debora.braganca31@gmail.com' +
-      '?subject=' + encodeURIComponent('Novo lead — Diagnóstico Operacional') +
-      '&body=' + encodeURIComponent(body);
+    var whatsappMsg = 'Olá, sou ' + firstName + ' ' + lastName + ' (' + role + ' — ' + org + '). ' +
+      'Fiz o diagnóstico e o resultado foi "' + bandLabel + '". Quero falar sobre a minha operação.';
+    var whatsappBtn = document.getElementById('quizWhatsappBtn');
+    if (whatsappBtn) whatsappBtn.href = 'https://wa.me/5531992971725?text=' + encodeURIComponent(whatsappMsg);
 
-    window.open(mailtoUrl, '_blank');
+    if (typeof dbaLeadsConfigured === 'function' && dbaLeadsConfigured()) {
+      dbaSendLead(payload);
+    } else {
+      // Planilha ainda não configurada: mantém o comportamento antigo (abre o e-mail do
+      // visitante já preenchido) como rede de segurança.
+      var body = 'Nome: ' + firstName + ' ' + lastName + '\n' +
+        'Telefone/WhatsApp: ' + phone + '\n' +
+        'Cargo: ' + role + '\n' +
+        'E-mail: ' + email + '\n' +
+        'Administradora: ' + org + '\n' +
+        'Resultado: ' + bandLabel + '\n' +
+        'Respostas: ' + JSON.stringify(answers);
+
+      var mailtoUrl = 'mailto:debora.braganca31@gmail.com' +
+        '?subject=' + encodeURIComponent('Novo lead — Diagnóstico Operacional') +
+        '&body=' + encodeURIComponent(body);
+
+      window.open(mailtoUrl, '_blank');
+    }
   }
 
   btnNext.addEventListener('click', function () {

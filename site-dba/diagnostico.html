@@ -48,23 +48,26 @@
   <div class="container">
     <button class="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
     <a href="index.html" class="logo"><img src="assets/img/logo-dark.png" alt="DBA Inteligência Operacional"></a>
-    <a href="administradoras.html" class="btn btn-primary header-cta">Sou administradora</a>
-  </div>
-  <nav class="site-nav">
-    <button class="nav-close" aria-label="Fechar menu">&times;</button>
-    <a href="index.html">Início</a>
-    <a href="servicos.html">Serviços</a>
-    <a href="blog.html">Blog</a>
-    <a href="livro.html">Livro</a>
-    <a href="diagnostico.html">Diagnóstico</a>
-    <a href="administradoras.html">Administradoras</a>
-    <div class="nav-contact">
-      <a href="https://wa.me/5531992971725" target="_blank" rel="noopener">WhatsApp (31) 99297-1725</a>
-      <a href="mailto:debora.braganca31@gmail.com">debora.braganca31@gmail.com</a>
-      <a href="https://instagram.com/adeborabraganca" target="_blank" rel="noopener">@adeborabraganca</a>
+    <div class="header-ctas">
+      <a href="administradoras.html" class="btn btn-primary header-cta">Sou administradora</a>
     </div>
-  </nav>
+  </div>
 </header>
+
+<nav class="site-nav">
+  <button class="nav-close" aria-label="Fechar menu">&times;</button>
+  <a href="index.html">Início</a>
+  <a href="servicos.html">Serviços</a>
+  <a href="blog.html">Blog</a>
+  <a href="livro.html">Livro</a>
+  <a href="diagnostico.html">Diagnóstico</a>
+  <a href="administradoras.html">Administradoras</a>
+  <div class="nav-contact">
+    <a href="https://wa.me/5531992971725" target="_blank" rel="noopener">WhatsApp (31) 99297-1725</a>
+    <a href="mailto:debora.braganca31@gmail.com">debora.braganca31@gmail.com</a>
+    <a href="https://instagram.com/adeborabraganca" target="_blank" rel="noopener">@adeborabraganca</a>
+  </div>
+</nav>
 
 <section class="section-dark" style="padding-top:96px; padding-bottom:96px;">
   <div class="container quiz-wrap">
@@ -80,7 +83,7 @@
     <form id="quizForm">
       <!-- EXEMPLO: substituir pelas perguntas reais de Débora. Estrutura e lógica de pontuação já funcionam. -->
       <div class="quiz-step is-active" data-step="0">
-        <p class="quiz-question">[Exemplo] Sua associação tem os processos de cada setor mapeados e documentados?</p>
+        <p class="quiz-question">Sua associação tem os processos de cada setor mapeados e documentados?</p>
         <div class="quiz-options">
           <button type="button" class="quiz-option" data-value="0">Não, cada pessoa faz do seu jeito</button>
           <button type="button" class="quiz-option" data-value="1">Alguns setores têm, a maioria não</button>
@@ -89,7 +92,7 @@
       </div>
 
       <div class="quiz-step" data-step="1">
-        <p class="quiz-question">[Exemplo] Vocês acompanham indicadores por setor (cadastro, cobrança, eventos, atendimento)?</p>
+        <p class="quiz-question">Vocês acompanham indicadores por setor (cadastro, cobrança, eventos, atendimento)?</p>
         <div class="quiz-options">
           <button type="button" class="quiz-option" data-value="0">Não temos indicadores estruturados</button>
           <button type="button" class="quiz-option" data-value="1">Só em alguns setores</button>
@@ -98,7 +101,7 @@
       </div>
 
       <div class="quiz-step" data-step="2">
-        <p class="quiz-question">[Exemplo] A operação depende de uma ou duas pessoas específicas para funcionar bem?</p>
+        <p class="quiz-question">A operação depende de uma ou duas pessoas específicas para funcionar bem?</p>
         <div class="quiz-options">
           <button type="button" class="quiz-option" data-value="0">Sim, muito dependente</button>
           <button type="button" class="quiz-option" data-value="1">Um pouco</button>
@@ -107,7 +110,7 @@
       </div>
 
       <div class="quiz-step" data-step="3">
-        <p class="quiz-question">[Exemplo] Vocês já estruturaram controles de governança e compliance pensando na LC 213/2025?</p>
+        <p class="quiz-question">Vocês já estruturaram controles de governança e compliance pensando na LC 213/2025?</p>
         <div class="quiz-options">
           <button type="button" class="quiz-option" data-value="0">Ainda não olhamos para isso</button>
           <button type="button" class="quiz-option" data-value="1">Estamos começando</button>
@@ -116,7 +119,7 @@
       </div>
 
       <div class="quiz-step" data-step="4">
-        <p class="quiz-question">[Exemplo] Quando um problema se repete, vocês costumam identificar a causa raiz ou apagar o incêndio?</p>
+        <p class="quiz-question">Quando um problema se repete, vocês costumam identificar a causa raiz ou apagar o incêndio?</p>
         <div class="quiz-options">
           <button type="button" class="quiz-option" data-value="0">Apagamos o incêndio e seguimos</button>
           <button type="button" class="quiz-option" data-value="1">Às vezes investigamos a causa</button>
@@ -162,8 +165,9 @@
         <a href="assets/ebook-diagnostico-operacional-dba.pdf" class="btn btn-primary" download="guia-diagnostico-operacional-dba.pdf" target="_blank" rel="noopener">Baixar o ebook gratuito</a>
         <p style="margin-top:12px; font-size:0.85rem; opacity:0.6; max-width:420px; margin-left:auto; margin-right:auto;">Guia com os 4 pilares de uma operação saudável. PDF, download direto, sem espera.</p>
       </div>
-      <div class="mt-24 text-center">
-        <a href="administradoras.html" class="btn btn-outline">Falar sobre a operação</a>
+      <div class="mt-24 text-center badge-row" style="justify-content:center;">
+        <a id="quizWhatsappBtn" href="https://wa.me/5531992971725" target="_blank" rel="noopener" class="btn btn-primary">Falar agora no WhatsApp</a>
+        <a href="administradoras.html" class="btn btn-outline">Conhecer a consultoria</a>
       </div>
     </div>
 
@@ -192,10 +196,11 @@
         </div>
       </div>
     </div>
-    <p style="opacity:0.5;">DBA · Inteligência Operacional é uma marca de Flow Assessoria. © 2026.</p>
+    <p style="opacity:0.5;">DBA · Inteligência Operacional é uma marca de Flow Assessoria · CNPJ 43.117.983/0001-53. © 2026.</p>
   </div>
 </footer>
 
+<script src="assets/js/leads.js"></script>
 <script src="assets/js/nav.js"></script>
 <script src="assets/js/quiz.js"></script>
 </body>
