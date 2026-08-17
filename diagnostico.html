@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico Operacional · DBA Inteligência Operacional</title>
+<meta name="description" content="Diagnóstico breve de maturidade operacional para administradoras de proteção patrimonial mutualista e proteção veicular.">
+<link rel="canonical" href="https://www.dbainteligenciaoperacional.com.br/diagnostico.html">
+<link rel="icon" href="assets/img/icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .quiz-wrap { max-width: 640px; margin: 0 auto; }
+  .quiz-progress { height: 6px; background: rgba(255,255,255,0.12); border-radius: 999px; overflow: hidden; margin-bottom: 40px; }
+  .quiz-progress-bar { height: 100%; background: linear-gradient(90deg, var(--rose), var(--malva)); width: 0%; transition: width 0.3s ease; }
+  .quiz-step { display: none; }
+  .quiz-step.is-active { display: block; }
+  .quiz-question { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 24px; }
+  .quiz-options { display: flex; flex-direction: column; gap: 12px; }
+  .quiz-option {
+    text-align: left;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.04);
+    color: var(--creme);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .quiz-option:hover { border-color: var(--rose); background: rgba(255,255,255,0.08); }
+  .quiz-option.is-selected { border-color: var(--rose); background: rgba(223,182,178,0.14); }
+  .quiz-nav { display: flex; justify-content: space-between; margin-top: 32px; }
+  .quiz-nav button:disabled { opacity: 0.35; cursor: not-allowed; }
+  .quiz-gate input {
+    width: 100%; padding: 14px 18px; border-radius: 10px; border: 1px solid rgba(43,18,76,0.15);
+    font-family: inherit; font-size: 1rem; margin-bottom: 14px;
+  }
+  .result-band { display: none; }
+  .result-band.is-active { display: block; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <button class="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    <a href="index.html" class="logo"><img src="assets/img/logo-dark.png" alt="DBA Inteligência Operacional"></a>
+    <div class="header-ctas">
+      <a href="administradoras.html" class="btn btn-primary header-cta">Sou administradora</a>
+    </div>
+  </div>
+</header>
+
+<nav class="site-nav">
+  <button class="nav-close" aria-label="Fechar menu">&times;</button>
+  <a href="index.html">Início</a>
+  <a href="servicos.html">Serviços</a>
+  <a href="blog.html">Blog</a>
+  <a href="livro.html">Livro</a>
+  <a href="diagnostico.html">Diagnóstico</a>
+  <a href="administradoras.html">Administradoras</a>
+  <div class="nav-contact">
+    <a href="https://wa.me/5531992971725" target="_blank" rel="noopener">WhatsApp (31) 99297-1725</a>
+    <a href="mailto:debora.braganca31@gmail.com">debora.braganca31@gmail.com</a>
+    <a href="https://instagram.com/adeborabraganca" target="_blank" rel="noopener">@adeborabraganca</a>
+  </div>
+</nav>
+
+<section class="section-dark" style="padding-top:96px; padding-bottom:96px;">
+  <div class="container quiz-wrap">
+
+    <div class="text-center mt-24" style="margin-bottom:40px;">
+      <span class="eyebrow">Diagnóstico Operacional</span>
+      <h1 class="section-title" style="color:#fff;">Qual o nível de maturidade da sua operação?</h1>
+      <p class="lead" style="margin:12px auto 0; max-width:520px;">5 perguntas rápidas. No final, seu resultado e acesso a um ebook gratuito.</p>
+    </div>
+
+    <div class="quiz-progress"><div class="quiz-progress-bar" id="progressBar"></div></div>
+
+    <form id="quizForm">
+      <!-- EXEMPLO: substituir pelas perguntas reais de Débora. Estrutura e lógica de pontuação já funcionam. -->
+      <div class="quiz-step is-active" data-step="0">
+        <p class="quiz-question">Sua associação tem os processos de cada setor mapeados e documentados?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-option" data-value="0">Não, cada pessoa faz do seu jeito</button>
+          <button type="button" class="quiz-option" data-value="1">Alguns setores têm, a maioria não</button>
+          <button type="button" class="quiz-option" data-value="2">Sim, mapeados e documentados</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="1">
+        <p class="quiz-question">Vocês acompanham indicadores por setor (cadastro, cobrança, eventos, atendimento)?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-option" data-value="0">Não temos indicadores estruturados</button>
+          <button type="button" class="quiz-option" data-value="1">Só em alguns setores</button>
+          <button type="button" class="quiz-option" data-value="2">Sim, com metas e acompanhamento regular</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="2">
+        <p class="quiz-question">A operação depende de uma ou duas pessoas específicas para funcionar bem?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-option" data-value="0">Sim, muito dependente</button>
+          <button type="button" class="quiz-option" data-value="1">Um pouco</button>
+          <button type="button" class="quiz-option" data-value="2">Não, a operação roda mesmo sem uma pessoa específica</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="3">
+        <p class="quiz-question">Vocês já estruturaram controles de governança e compliance pensando na LC 213/2025?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-option" data-value="0">Ainda não olhamos para isso</button>
+          <button type="button" class="quiz-option" data-value="1">Estamos começando</button>
+          <button type="button" class="quiz-option" data-value="2">Já temos estrutura de governança formalizada</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="4">
+        <p class="quiz-question">Quando um problema se repete, vocês costumam identificar a causa raiz ou apagar o incêndio?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-option" data-value="0">Apagamos o incêndio e seguimos</button>
+          <button type="button" class="quiz-option" data-value="1">Às vezes investigamos a causa</button>
+          <button type="button" class="quiz-option" data-value="2">Sempre buscamos a causa raiz</button>
+        </div>
+      </div>
+
+      <!-- GATE: captura de dados antes de liberar o resultado -->
+      <div class="quiz-step quiz-gate" data-step="5">
+        <p class="quiz-question">Quase lá! Para onde enviamos seu resultado e o ebook gratuito?</p>
+        <input type="text" id="gateFirstName" placeholder="Nome" required>
+        <input type="text" id="gateLastName" placeholder="Sobrenome" required>
+        <input type="tel" id="gatePhone" placeholder="Telefone / WhatsApp" required>
+        <input type="text" id="gateRole" placeholder="Cargo" required>
+        <input type="text" id="gateOrg" placeholder="Administradora / associação" required>
+        <input type="email" id="gateEmail" placeholder="E-mail" required>
+      </div>
+    </form>
+
+    <div class="quiz-nav">
+      <button type="button" class="btn btn-outline" id="btnBack" disabled>Voltar</button>
+      <button type="button" class="btn btn-primary" id="btnNext">Próxima</button>
+    </div>
+
+    <!-- RESULTADOS: faixas de exemplo, ajustar pontuação/textos conforme critério real dela -->
+    <div id="resultWrap" style="display:none;">
+      <div class="result-band" data-band="baixa">
+        <span class="tag-flag">Resultado</span>
+        <h2 class="section-title" style="color:#fff;">Operação reativa</h2>
+        <p class="lead">A operação ainda depende muito de pessoas e apaga incêndio no dia a dia. Estruturar processos e indicadores básicos já traria ganho rápido, e é exatamente onde a LC 213/2025 vai cobrar mais.</p>
+      </div>
+      <div class="result-band" data-band="media">
+        <span class="tag-flag">Resultado</span>
+        <h2 class="section-title" style="color:#fff;">Operação em estruturação</h2>
+        <p class="lead">Já existe alguma base de processo e indicador, mas de forma irregular entre setores. O próximo passo é padronizar e conectar isso à governança exigida pela LC 213/2025.</p>
+      </div>
+      <div class="result-band" data-band="alta">
+        <span class="tag-flag">Resultado</span>
+        <h2 class="section-title" style="color:#fff;">Operação madura</h2>
+        <p class="lead">Processos mapeados, indicadores acompanhados e menor dependência de pessoas específicas. O foco agora é consolidar a governança GRC e preparar a operação para escalar.</p>
+      </div>
+      <div class="mt-40 text-center">
+        <a href="assets/ebook-diagnostico-operacional-dba.pdf" class="btn btn-primary" download="guia-diagnostico-operacional-dba.pdf" target="_blank" rel="noopener">Baixar o ebook gratuito</a>
+        <p style="margin-top:12px; font-size:0.85rem; opacity:0.6; max-width:420px; margin-left:auto; margin-right:auto;">Guia com os 4 pilares de uma operação saudável. PDF, download direto, sem espera.</p>
+      </div>
+      <div class="mt-24 text-center badge-row" style="justify-content:center;">
+        <a id="quizWhatsappBtn" href="https://wa.me/5531992971725" target="_blank" rel="noopener" class="btn btn-primary">Falar agora no WhatsApp</a>
+        <a href="administradoras.html" class="btn btn-outline">Conhecer a consultoria</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="logo"><img src="assets/img/logo-light.png" alt="DBA Inteligência Operacional"></div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <a href="index.html">Início</a>
+          <a href="servicos.html">Serviços</a>
+          <a href="blog.html">Blog</a>
+          <a href="livro.html">Livro</a>
+          <a href="diagnostico.html">Diagnóstico</a>
+          <a href="administradoras.html">Administradoras</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="mailto:debora.braganca31@gmail.com">debora.braganca31@gmail.com</a>
+          <a href="https://wa.me/5531992971725" target="_blank" rel="noopener">(31) 99297-1725</a>
+          <a href="https://instagram.com/adeborabraganca" target="_blank" rel="noopener">@adeborabraganca</a>
+        </div>
+      </div>
+    </div>
+    <p style="opacity:0.5;">DBA · Inteligência Operacional é uma marca de Flow Assessoria · CNPJ 43.117.983/0001-53. © 2026.</p>
+  </div>
+</footer>
+
+<script src="assets/js/leads.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/quiz.js"></script>
+</body>
+</html>

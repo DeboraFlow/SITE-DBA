@@ -1,0 +1,23 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="flowLine1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DFB6B2" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#DFB6B2" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#854F6C" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="flowLine2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#854F6C" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#DFB6B2" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#522B5B" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M -100 620 C 250 520, 420 720, 700 600 S 1150 420, 1700 540" fill="none" stroke="url(#flowLine1)" stroke-width="2.5"/>
+  <path d="M -100 220 C 300 120, 500 340, 820 240 S 1300 80, 1700 200" fill="none" stroke="url(#flowLine2)" stroke-width="2"/>
+  <path d="M -100 820 C 350 900, 600 760, 900 840 S 1400 760, 1700 820" fill="none" stroke="url(#flowLine1)" stroke-width="1.5"/>
+  <circle cx="700" cy="600" r="7" fill="#DFB6B2" opacity="0.6"/>
+  <circle cx="1150" cy="420" r="5" fill="#854F6C" opacity="0.5"/>
+  <circle cx="820" cy="240" r="6" fill="#DFB6B2" opacity="0.45"/>
+  <circle cx="300" cy="130" r="4" fill="#854F6C" opacity="0.4"/>
+  <circle cx="1400" cy="760" r="5" fill="#DFB6B2" opacity="0.4"/>
+  <circle cx="250" cy="520" r="5" fill="#854F6C" opacity="0.5"/>
+</svg>
